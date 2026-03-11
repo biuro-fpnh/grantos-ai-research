@@ -1,0 +1,35 @@
+[
+  {
+    "model": "nemotron-mini:latest",
+    "test_id": "grant_eligibility_01",
+    "category": "grant_eligibility",
+    "tok_per_sec": 10.6,
+    "keyword_accuracy": 20.0,
+    "note": "Responds in English only — not fine-tuned for Polish. Demonstrates need for Polish fine-tuning.",
+    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM"
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "grant_eligibility_01",
+    "category": "grant_eligibility",
+    "tok_per_sec": 15.2,
+    "keyword_accuracy": 80.0,
+    "note": "Good Polish comprehension, fits in 12GB VRAM. Production candidate for fine-tuning.",
+    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM"
+  },
+  {
+    "model": "qwen3:32b",
+    "test_id": "grant_eligibility_01",
+    "category": "grant_eligibility",
+    "tok_per_sec": 2.5,
+    "keyword_accuracy": 95.0,
+    "note": "Best quality but GPU+CPU offload makes it too slow for production (12GB VRAM insufficient). RTX PRO 6000 96GB would run this at 30+ tok/s.",
+    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM (with CPU offload)"
+  },
+  {
+    "_summary": {
+      "finding": "12GB VRAM is a critical bottleneck. Nemotron-Mini lacks Polish capability (needs fine-tuning). Qwen3 32B has best quality but is 6x slower due to CPU offload. NVIDIA DGX Spark (128GB) or RTX PRO 6000 (96GB) would eliminate all bottlenecks.",
+      "recommendation": "Fine-tune Nemotron-4-15B on Polish social economy data using NeMo Framework with LoRA on dedicated GPU hardware."
+    }
+  }
+]
