@@ -1,0 +1,61 @@
+# NVIDIA NeMo Fine-Tuning Configuration
+# Target: Polish Social Economy LLM
+# Hardware: NVIDIA DGX Spark (128GB) or RTX PRO 6000 (96GB)
+
+trainer:
+  devices: 1
+  accelerator: gpu
+  precision: bf16-mixed
+  max_epochs: 3
+  val_check_interval: 0.25
+  gradient_clip_val: 1.0
+
+model:
+  # Base model: NVIDIA Nemotron-4-15B (from ai.nvidia.com)
+  restore_from_path: nemotron-4-15b-base
+
+  # LoRA Configuration (memory-efficient fine-tuning)
+  peft:
+    peft_scheme: lora
+    lora_tuning:
+      target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+      lora_alpha: 32
+      lora_rank: 16
+      lora_dropout: 0.05
+
+  # Training hyperparameters
+  optim:
+    name: adamw
+    lr: 2e-4
+    weight_decay: 0.01
+    sched:
+      name: CosineAnnealing
+      warmup_steps: 100
+      min_lr: 1e-6
+
+  data:
+    # Polish social economy dataset
+    train_ds:
+      file_path: /data/train_polish_social_economy.jsonl
+      max_seq_length: 4096
+      micro_batch_size: 2
+      global_batch_size: 8
+
+    validation_ds:
+      file_path: /data/val_polish_social_economy.jsonl
+      max_seq_length: 4096
+      micro_batch_size: 2
+
+# Evaluation tasks
+eval:
+  tasks:
+    - grant_eligibility
+    - document_classification
+    - elearning_engagement
+    - csr_report_generation
+    - text_to_sql_polish
+
+# Export for NIM deployment
+export:
+  format: trt_llm  # TensorRT-LLM optimized
+  output_path: /models/nemotron-4-15b-pl-social-economy

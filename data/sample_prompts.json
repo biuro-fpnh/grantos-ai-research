@@ -1,0 +1,37 @@
+[
+  {
+    "id": "grant_001",
+    "task": "grant_eligibility",
+    "input": "Stowarzyszenie 'Nowa Huta Przyszłości' (KRS: 0001234567, rok założenia: 2020, siedziba: Kraków, budżet roczny: 180 000 PLN, 2 pracowników, 15 wolontariuszy). Chce ubiegać się o dotację z programu FERS na szkolenia cyfrowe dla seniorów. Oceń kwalifikowalność.",
+    "expected_output": "Organizacja spełnia kryteria formalne: aktywny KRS (>3 lata), siedziba w Polsce, działalność statutowa zbieżna z celami FERS...",
+    "domain": "polish_ngo_grants"
+  },
+  {
+    "id": "elearn_001",
+    "task": "elearning_engagement",
+    "input": "Dane zaangażowania studenta (kurs: Marketing Cyfrowy, 12 lekcji):\n- Ukończone lekcje: 5/12\n- Średni heartbeat: 72% (norma >85%)\n- Attention checks: 3/5 poprawnych\n- Czas na lekcji: 8 min (norma: 15 min)\n- Zadania kreatywne: 2/3 oddane (ocena: 7/10)\n- Ostatnia aktywność: 4 dni temu\n\nZaproponuj interwencję.",
+    "expected_output": "Student wykazuje spadek zaangażowania (heartbeat 72%, krótszy czas). Rekomendacje: 1) Powiadomienie push o nowej lekcji, 2) Dostosowanie trudności...",
+    "domain": "adaptive_elearning"
+  },
+  {
+    "id": "doc_001",
+    "task": "document_classification",
+    "input": "UMOWA O DOFINANSOWANIE PROJEKTU\nnr RPMP.08.04.02-12-0456/26\nw ramach Regionalnego Programu Operacyjnego Województwa Małopolskiego na lata 2021-2027\nOś priorytetowa 8: Rynek pracy\nDziałanie 8.4: Rozwój kompetencji kadr\nBeneficjent: Fundacja ABC, ul. Krakowska 15, 31-066 Kraków\nKwota dofinansowania: 156 780,00 PLN\nOkres realizacji: 01.03.2026 - 28.02.2027",
+    "expected_output": "{\"type\": \"umowa_dofinansowanie\", \"program\": \"RPO Małopolska 2021-2027\", \"priority\": \"8.4\", \"beneficiary\": \"Fundacja ABC\", \"amount_pln\": 156780, \"period\": \"2026-03 to 2027-02\"}",
+    "domain": "polish_legal_docs"
+  },
+  {
+    "id": "sql_001",
+    "task": "text_to_sql",
+    "input": "Pokaż wszystkie organizacje z Krakowa, które złożyły więcej niż 3 wnioski o dotację w 2025 roku i mają status aktywny, posortowane po liczbie wniosków malejąco.",
+    "expected_output": "SELECT o.name, o.city, COUNT(a.id) as grant_count FROM organizations o JOIN crm_applications a ON o.id = a.organization_id WHERE o.city = 'Kraków' AND a.created_at >= '2025-01-01' AND a.created_at < '2026-01-01' AND o.status = 'active' GROUP BY o.id, o.name, o.city HAVING COUNT(a.id) > 3 ORDER BY grant_count DESC;",
+    "domain": "polish_ngo_database"
+  },
+  {
+    "id": "csr_001",
+    "task": "csr_report",
+    "input": "Dane operacyjne fundacji za 2025:\n- 215 organizacji obsługiwanych\n- 523 studentów na kursach online\n- 12 chatbotów AI (45 000 rozmów)\n- 156 turnusów rehabilitacyjnych\n- 89 wniosków grantowych (skuteczność 99.5%)\n- 7 pracowników + 23 wolontariuszy\n- Emisja CO2: 2.1 tony (serwery OVH, Francja - niskoemisyjne)\n- 50 000+ dokumentów zdigitalizowanych\n\nWygeneruj sekcję 'Wpływ Społeczny' raportu ESG.",
+    "expected_output": "## Wpływ Społeczny (S)\n\nW roku 2025 Fundacja bezpośrednio wspierała 215 organizacji sektora ekonomii społecznej...",
+    "domain": "esg_reporting"
+  }
+]
