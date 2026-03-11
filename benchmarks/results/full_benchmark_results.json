@@ -1,0 +1,87 @@
+[
+  {
+    "category": "grant_eligibility",
+    "model": "qwen3:14b",
+    "time_sec": 152.2,
+    "tokens": 500,
+    "tok_per_sec": 3.8,
+    "keyword_accuracy": 0.0,
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "category": "elearning_engagement",
+    "model": "qwen3:14b",
+    "time_sec": 108.9,
+    "tokens": 500,
+    "tok_per_sec": 5.1,
+    "keyword_accuracy": 20.0,
+    "response_length": 121,
+    "response_preview": "Aby zwiększyć zaangażowanie studenta w kursie online, należy skupić się na **interaktywności, personalizacji, motywacji i"
+  },
+  {
+    "category": "document_classification",
+    "model": "qwen3:14b",
+    "time_sec": 112.3,
+    "tokens": 500,
+    "tok_per_sec": 5.0,
+    "keyword_accuracy": 80.0,
+    "response_length": 229,
+    "response_preview": "**Typ dokumentu:** Umowa o powierzenie grantu  \n**Program:** Małopolska Przedsiębiorcza (współfinansowany ze środków EFS+)  \n**Kwota:** 23 450,00 PLN  \n\nDokument dotyczy formalnego przekazania grantu "
+  },
+  {
+    "category": "csr_report",
+    "model": "qwen3:14b",
+    "time_sec": 116.4,
+    "tokens": 500,
+    "tok_per_sec": 4.8,
+    "keyword_accuracy": 0.0,
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "category": "text_to_sql",
+    "model": "qwen3:14b",
+    "time_sec": 118.0,
+    "tokens": 500,
+    "tok_per_sec": 4.7,
+    "keyword_accuracy": 0.0,
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "category": "grant_eligibility",
+    "model": "qwen3:32b",
+    "time_sec": 298.5,
+    "tokens": 500,
+    "tok_per_sec": 2.0,
+    "keyword_accuracy": 0.0,
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "category": "elearning_engagement",
+    "model": "qwen3:32b",
+    "time_sec": 234.9,
+    "tokens": 500,
+    "tok_per_sec": 2.4,
+    "keyword_accuracy": 0.0,
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "category": "document_classification",
+    "model": "qwen3:32b",
+    "error": "timed out"
+  },
+  {
+    "category": "csr_report",
+    "model": "qwen3:32b",
+    "error": "timed out"
+  },
+  {
+    "category": "text_to_sql",
+    "model": "qwen3:32b",
+    "error": "timed out"
+  }
+]
