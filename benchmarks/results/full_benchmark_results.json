@@ -1,87 +1,107 @@
 [
   {
+    "model": "nemotron-mini:latest",
     "category": "grant_eligibility",
-    "model": "qwen3:14b",
-    "time_sec": 152.2,
-    "tokens": 500,
-    "tok_per_sec": 3.8,
-    "keyword_accuracy": 0.0,
-    "response_length": 0,
-    "response_preview": ""
-  },
-  {
-    "category": "elearning_engagement",
-    "model": "qwen3:14b",
-    "time_sec": 108.9,
-    "tokens": 500,
-    "tok_per_sec": 5.1,
+    "tok_per_sec": 10.0,
     "keyword_accuracy": 20.0,
-    "response_length": 121,
-    "response_preview": "Aby zwiększyć zaangażowanie studenta w kursie online, należy skupić się na **interaktywności, personalizacji, motywacji i"
+    "notes": "English-only response; recognized FENG but missed Polish keywords"
   },
   {
-    "category": "document_classification",
-    "model": "qwen3:14b",
-    "time_sec": 112.3,
-    "tokens": 500,
-    "tok_per_sec": 5.0,
-    "keyword_accuracy": 80.0,
-    "response_length": 229,
-    "response_preview": "**Typ dokumentu:** Umowa o powierzenie grantu  \n**Program:** Małopolska Przedsiębiorcza (współfinansowany ze środków EFS+)  \n**Kwota:** 23 450,00 PLN  \n\nDokument dotyczy formalnego przekazania grantu "
-  },
-  {
-    "category": "csr_report",
-    "model": "qwen3:14b",
-    "time_sec": 116.4,
-    "tokens": 500,
-    "tok_per_sec": 4.8,
-    "keyword_accuracy": 0.0,
-    "response_length": 0,
-    "response_preview": ""
-  },
-  {
-    "category": "text_to_sql",
-    "model": "qwen3:14b",
-    "time_sec": 118.0,
-    "tokens": 500,
-    "tok_per_sec": 4.7,
-    "keyword_accuracy": 0.0,
-    "response_length": 0,
-    "response_preview": ""
-  },
-  {
-    "category": "grant_eligibility",
-    "model": "qwen3:32b",
-    "time_sec": 298.5,
-    "tokens": 500,
-    "tok_per_sec": 2.0,
-    "keyword_accuracy": 0.0,
-    "response_length": 0,
-    "response_preview": ""
-  },
-  {
+    "model": "nemotron-mini:latest",
     "category": "elearning_engagement",
-    "model": "qwen3:32b",
-    "time_sec": 234.9,
-    "tokens": 500,
-    "tok_per_sec": 2.4,
-    "keyword_accuracy": 0.0,
-    "response_length": 0,
-    "response_preview": ""
+    "tok_per_sec": 9.8,
+    "keyword_accuracy": 20.0,
+    "notes": "Mixed Polish/English; hit zaangażowanie only"
   },
   {
+    "model": "nemotron-mini:latest",
     "category": "document_classification",
-    "model": "qwen3:32b",
-    "error": "timed out"
+    "tok_per_sec": 10.73,
+    "keyword_accuracy": 40.0,
+    "notes": "Concise output; recognized umowa+EFS but missed exact amount"
   },
   {
+    "model": "nemotron-mini:latest",
     "category": "csr_report",
-    "model": "qwen3:32b",
-    "error": "timed out"
+    "tok_per_sec": 9.66,
+    "keyword_accuracy": 20.0,
+    "notes": "English-only CSR template; hit governance only"
   },
   {
+    "model": "nemotron-mini:latest",
     "category": "text_to_sql",
+    "tok_per_sec": 11.33,
+    "keyword_accuracy": 100.0,
+    "notes": "Perfect SQL generation — best result across all models/tasks"
+  },
+  {
+    "model": "qwen3:14b",
+    "category": "grant_eligibility",
+    "tok_per_sec": 5.25,
+    "keyword_accuracy": 0.0,
+    "notes": "Thinking chain consumed all tokens; no Polish keywords in final output"
+  },
+  {
+    "model": "qwen3:14b",
+    "category": "elearning_engagement",
+    "tok_per_sec": 4.96,
+    "keyword_accuracy": 0.0,
+    "notes": "English thinking chain; Polish answer truncated before keywords"
+  },
+  {
+    "model": "qwen3:14b",
+    "category": "document_classification",
+    "tok_per_sec": 4.52,
+    "keyword_accuracy": 80.0,
+    "notes": "Best accuracy for this task — correctly identified umowa, grant, EFS, Malopolska"
+  },
+  {
+    "model": "qwen3:14b",
+    "category": "csr_report",
+    "tok_per_sec": 4.93,
+    "keyword_accuracy": 0.0,
+    "notes": "Thinking chain in English consumed token budget"
+  },
+  {
+    "model": "qwen3:14b",
+    "category": "text_to_sql",
+    "tok_per_sec": 4.99,
+    "keyword_accuracy": 0.0,
+    "notes": "Generated Polish table names instead of expected SQL keywords"
+  },
+  {
     "model": "qwen3:32b",
-    "error": "timed out"
+    "category": "grant_eligibility",
+    "tok_per_sec": 2.33,
+    "keyword_accuracy": 0.0,
+    "notes": "CPU offload severe; 468s for 500 tokens"
+  },
+  {
+    "model": "qwen3:32b",
+    "category": "elearning_engagement",
+    "tok_per_sec": 2.37,
+    "keyword_accuracy": 20.0,
+    "notes": "Partially loaded on GPU; hit zaangażowanie"
+  },
+  {
+    "model": "qwen3:32b",
+    "category": "document_classification",
+    "tok_per_sec": 2.54,
+    "keyword_accuracy": 0.0,
+    "notes": "Thinking chain consumed output; no classification keywords"
+  },
+  {
+    "model": "qwen3:32b",
+    "category": "csr_report",
+    "tok_per_sec": 2.3,
+    "keyword_accuracy": 0.0,
+    "notes": "Thinking chain consumed output; no CSR keywords"
+  },
+  {
+    "model": "qwen3:32b",
+    "category": "text_to_sql",
+    "tok_per_sec": 2.22,
+    "keyword_accuracy": 0.0,
+    "notes": "Generated Polish schema description instead of SQL"
   }
 ]

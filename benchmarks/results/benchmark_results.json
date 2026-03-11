@@ -3,33 +3,291 @@
     "model": "nemotron-mini:latest",
     "test_id": "grant_eligibility_01",
     "category": "grant_eligibility",
-    "tok_per_sec": 10.6,
+    "time_sec": 39.26,
+    "tokens": 282,
+    "tok_per_sec": 10.0,
     "keyword_accuracy": 20.0,
-    "note": "Responds in English only — not fine-tuned for Polish. Demonstrates need for Polish fine-tuning.",
-    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM"
+    "keyword_hits": [
+      "FENG"
+    ],
+    "keyword_misses": [
+      "KRS",
+      "dotacja",
+      "kwalifikowalność",
+      "wkład"
+    ],
+    "response_length": 1469,
+    "response_preview": " Sure, I can help you with that. The European Commission's Connecting Europe Facility (FENG) is a European Union program aimed at supporting the development of cross-border cooperation and infrastructure projects. The program provides funding for various types of projects, including those related to"
   },
   {
-    "model": "qwen3:14b",
-    "test_id": "grant_eligibility_01",
-    "category": "grant_eligibility",
-    "tok_per_sec": 15.2,
-    "keyword_accuracy": 80.0,
-    "note": "Good Polish comprehension, fits in 12GB VRAM. Production candidate for fine-tuning.",
-    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM"
+    "model": "nemotron-mini:latest",
+    "test_id": "elearning_engage_01",
+    "category": "elearning_engagement",
+    "time_sec": 31.86,
+    "tokens": 266,
+    "tok_per_sec": 9.8,
+    "keyword_accuracy": 20.0,
+    "keyword_hits": [
+      "zaangażowanie"
+    ],
+    "keyword_misses": [
+      "motywacja",
+      "personalizacja",
+      "quiz",
+      "przypomnienie"
+    ],
+    "response_length": 1218,
+    "response_preview": " Oto kilka strategii, które mogą pomóc zwiększyć zaangażowanie:\n1. Upewnij się, że student ma odpowiednie narzędzia i środowisko do nauki. Zapewnij mu dostęp do komputera, internetu, a także do niezbędnych aplikacji i narzędzi do nauki.\n2. Upewnij się, że student ma dostęp do materiałów dodatkowych,"
+  },
+  {
+    "model": "nemotron-mini:latest",
+    "test_id": "doc_classify_01",
+    "category": "document_classification",
+    "time_sec": 7.13,
+    "tokens": 29,
+    "tok_per_sec": 10.73,
+    "keyword_accuracy": 40.0,
+    "keyword_hits": [
+      "umowa",
+      "EFS"
+    ],
+    "keyword_misses": [
+      "grant",
+      "23450",
+      "Małopolska"
+    ],
+    "response_length": 59,
+    "response_preview": " Typ dokumentu: umowa,\nProgram: EFS+,\nKwota: 23 450,00 PLN."
+  },
+  {
+    "model": "nemotron-mini:latest",
+    "test_id": "csr_report_01",
+    "category": "csr_report",
+    "time_sec": 12.32,
+    "tokens": 79,
+    "tok_per_sec": 9.66,
+    "keyword_accuracy": 20.0,
+    "keyword_hits": [
+      "governance"
+    ],
+    "keyword_misses": [
+      "społeczny",
+      "środowiskowy",
+      "interesariusze",
+      "wskaźniki"
+    ],
+    "response_length": 336,
+    "response_preview": " Sure, I can help you generate a sketch of a Corporate Social Responsibility (CSR) or Environmental, Social, and Governance (ESG) report for the year 2025. Could you please provide me with more details about the organization you're referring to and the specific goals or objectives you'd like to achi"
+  },
+  {
+    "model": "nemotron-mini:latest",
+    "test_id": "text_to_sql_01",
+    "category": "text_to_sql",
+    "time_sec": 7.29,
+    "tokens": 33,
+    "tok_per_sec": 11.33,
+    "keyword_accuracy": 100.0,
+    "keyword_hits": [
+      "SELECT",
+      "WHERE",
+      "status",
+      "ORDER BY",
+      "DESC"
+    ],
+    "keyword_misses": [],
+    "response_length": 106,
+    "response_preview": " SELECT * FROM grants\n WHERE month = '1' AND status = 'approved' AND amount > 10000\n ORDER BY amount DESC;"
   },
   {
     "model": "qwen3:32b",
     "test_id": "grant_eligibility_01",
     "category": "grant_eligibility",
-    "tok_per_sec": 2.5,
-    "keyword_accuracy": 95.0,
-    "note": "Best quality but GPU+CPU offload makes it too slow for production (12GB VRAM insufficient). RTX PRO 6000 96GB would run this at 30+ tok/s.",
-    "hardware": "NVIDIA RTX 4080 Laptop 12GB VRAM (with CPU offload)"
+    "time_sec": 468.15,
+    "tokens": 500,
+    "tok_per_sec": 2.33,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "KRS",
+      "dotacja",
+      "kwalifikowalność",
+      "FENG",
+      "wkład"
+    ],
+    "response_length": 0,
+    "response_preview": ""
   },
   {
-    "_summary": {
-      "finding": "12GB VRAM is a critical bottleneck. Nemotron-Mini lacks Polish capability (needs fine-tuning). Qwen3 32B has best quality but is 6x slower due to CPU offload. NVIDIA DGX Spark (128GB) or RTX PRO 6000 (96GB) would eliminate all bottlenecks.",
-      "recommendation": "Fine-tune Nemotron-4-15B on Polish social economy data using NeMo Framework with LoRA on dedicated GPU hardware."
-    }
+    "model": "qwen3:32b",
+    "test_id": "elearning_engage_01",
+    "category": "elearning_engagement",
+    "time_sec": 296.69,
+    "tokens": 500,
+    "tok_per_sec": 2.37,
+    "keyword_accuracy": 20.0,
+    "keyword_hits": [
+      "zaangażowanie"
+    ],
+    "keyword_misses": [
+      "motywacja",
+      "personalizacja",
+      "quiz",
+      "przypomnienie"
+    ],
+    "response_length": 135,
+    "response_preview": "Aby zwiększyć zaangażowanie ucznia w kursie online, warto zastosować strategię, która łączy techniki edukacyjne, psychologiczne i techn"
+  },
+  {
+    "model": "qwen3:32b",
+    "test_id": "doc_classify_01",
+    "category": "document_classification",
+    "time_sec": 288.62,
+    "tokens": 500,
+    "tok_per_sec": 2.54,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "umowa",
+      "grant",
+      "EFS",
+      "23450",
+      "Małopolska"
+    ],
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "model": "qwen3:32b",
+    "test_id": "csr_report_01",
+    "category": "csr_report",
+    "time_sec": 320.34,
+    "tokens": 500,
+    "tok_per_sec": 2.3,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "społeczny",
+      "środowiskowy",
+      "governance",
+      "interesariusze",
+      "wskaźniki"
+    ],
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "model": "qwen3:32b",
+    "test_id": "text_to_sql_01",
+    "category": "text_to_sql",
+    "time_sec": 282.69,
+    "tokens": 500,
+    "tok_per_sec": 2.22,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "SELECT",
+      "WHERE",
+      "status",
+      "ORDER BY",
+      "DESC"
+    ],
+    "response_length": 190,
+    "response_preview": "Aby przekształcić to zapytanie na SQL (PostgreSQL), załóżmy, że istnieje tabela `wnioski_dotacji` (lub `grant_applications` w języku angielskim), która zawiera następujące kolumny:\n- `data_z"
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "grant_eligibility_01",
+    "category": "grant_eligibility",
+    "time_sec": 105.4,
+    "tokens": 500,
+    "tok_per_sec": 5.25,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "KRS",
+      "dotacja",
+      "kwalifikowalność",
+      "FENG",
+      "wkład"
+    ],
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "elearning_engage_01",
+    "category": "elearning_engagement",
+    "time_sec": 110.82,
+    "tokens": 500,
+    "tok_per_sec": 4.96,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "zaangażowanie",
+      "motywacja",
+      "personalizacja",
+      "quiz",
+      "przypomnienie"
+    ],
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "doc_classify_01",
+    "category": "document_classification",
+    "time_sec": 108.8,
+    "tokens": 439,
+    "tok_per_sec": 4.52,
+    "keyword_accuracy": 80.0,
+    "keyword_hits": [
+      "umowa",
+      "grant",
+      "EFS",
+      "Małopolska"
+    ],
+    "keyword_misses": [
+      "23450"
+    ],
+    "response_length": 151,
+    "response_preview": "**Typ dokumentu:** Umowa o powierzenie grantu  \n**Program:** \"Małopolska Przedsiębiorcza\" (współfinansowany ze środków EFS+)  \n**Kwota:** 23 450,00 PLN"
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "csr_report_01",
+    "category": "csr_report",
+    "time_sec": 112.01,
+    "tokens": 500,
+    "tok_per_sec": 4.93,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "społeczny",
+      "środowiskowy",
+      "governance",
+      "interesariusze",
+      "wskaźniki"
+    ],
+    "response_length": 0,
+    "response_preview": ""
+  },
+  {
+    "model": "qwen3:14b",
+    "test_id": "text_to_sql_01",
+    "category": "text_to_sql",
+    "time_sec": 110.84,
+    "tokens": 500,
+    "tok_per_sec": 4.99,
+    "keyword_accuracy": 0.0,
+    "keyword_hits": [],
+    "keyword_misses": [
+      "SELECT",
+      "WHERE",
+      "status",
+      "ORDER BY",
+      "DESC"
+    ],
+    "response_length": 0,
+    "response_preview": ""
   }
 ]
